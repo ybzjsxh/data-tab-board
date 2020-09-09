@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "data-tab-board",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": { "distDir": ".doc" }
+    }
+  ]
+}

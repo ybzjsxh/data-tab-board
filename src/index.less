@@ -1,0 +1,99 @@
+.container {
+  margin: 20px 0 40px;
+  border: 1px solid #dfecfa;
+  border-radius: 6px;
+  box-shadow: 0px 10px 15px -5px rgba(13, 69, 141, 0.2);
+  overflow: hidden;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f6fafd;
+    margin: 0;
+    .days {
+      display: flex;
+      font-size: 20px;
+      line-height: 50px;
+      padding-top: 10px;
+      user-select: none;
+      .day {
+        width: 80px;
+        margin-left: 5px;
+        text-align: center;
+        transition: all 0.3s ease;
+        color: #666666;
+        background-color: #eeeeee;
+        border-radius: 6px 6px 0 0;
+        border: 1px solid #dfecfa;
+        border-bottom-color: transparent;
+        cursor: pointer;
+        &:hover {
+          color: #5094ff;
+        }
+      }
+      .active {
+        color: #5094ff;
+        background-color: #ffffff;
+        border-radius: 6px 6px 0 0;
+      }
+    }
+    .range {
+      & > .ant-calendar-picker {
+        width: 328px;
+      }
+    }
+    .stats-type {
+      display: flex;
+      align-self: center;
+      height: 34px;
+      color: #5094ff;
+      border: 1px solid #5094ff;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      user-select: none;
+      .stat {
+        width: 80px;
+        height: 34px;
+        line-height: 34px;
+        text-align: center;
+        &-active {
+          color: #fff;
+          background-color: #5094ff;
+        }
+      }
+    }
+    .export {
+      box-sizing: border-box;
+      margin-right: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & > button {
+        width: 80px;
+        height: 34px;
+        line-height: 34px;
+        outline: none;
+        background-color: #5094ff;
+        border: 1px solid #5094ff;
+        font-size: 14px;
+        color: #ffffff;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+    }
+  }
+  .chart {
+    height: 400px;
+    background-color: #ffffff;
+    color: #666666;
+    .chart__empty {
+      display: flex;
+      justify-content: center;
+      line-height: 400px;
+      font-size: 32px;
+      user-select: none;
+    }
+  }
+}

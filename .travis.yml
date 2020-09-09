@@ -1,0 +1,29 @@
+language: node_js
+
+node_js:
+  - stable
+
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
+
+cache:
+  yarn: true
+  directories:
+    - "node_modules"
+
+script:
+  - yarn build
+
+notifications:
+  email: false
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  local_dir: .doc
+  target_branch: gh_pages # which branch to deploy
+  on: # which branch to trigger travis
+    branch: master

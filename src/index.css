@@ -1,0 +1,96 @@
+.container {
+  margin: 20px 0 40px;
+  border: 1px solid #dfecfa;
+  border-radius: 6px;
+  box-shadow: 0px 10px 15px -5px rgba(13, 69, 141, 0.2);
+  overflow: hidden;
+}
+.container .header {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  line-height: 60px;
+  background-color: #f6fafd;
+  margin: 0;
+}
+.container .header .days {
+  display: flex;
+  font-size: 20px;
+  line-height: 50px;
+  padding-top: 10px;
+  user-select: none;
+}
+.container .header .days .day {
+  width: 80px;
+  margin-left: 5px;
+  text-align: center;
+  transition: all 0.3s ease;
+  color: #666666;
+  background-color: #eeeeee;
+  border-radius: 6px 6px 0 0;
+  border: 1px solid #dfecfa;
+  border-bottom-color: transparent;
+  cursor: pointer;
+}
+.container .header .days .day:hover {
+  color: #5094ff;
+}
+.container .header .days .active {
+  color: #5094ff;
+  background-color: #ffffff;
+  border-radius: 6px 6px 0 0;
+}
+.container .header .range > .ant-calendar-picker {
+  width: 328px;
+}
+.container .header .stats-type {
+  display: flex;
+  align-self: center;
+  height: 34px;
+  color: #5094ff;
+  border: 1px solid #5094ff;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+}
+.container .header .stats-type .stat {
+  width: 80px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+}
+.container .header .stats-type .stat-active {
+  color: #fff;
+  background-color: #5094ff;
+}
+.container .header .export {
+  box-sizing: border-box;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .header .export > button {
+  width: 80px;
+  height: 34px;
+  outline: none;
+  background-color: #5094ff;
+  border: 1px solid #5094ff;
+  font-size: 14px;
+  color: #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.container .chart {
+  height: 400px;
+  background-color: #ffffff;
+  color: #666666;
+}
+.container .chart .chart__empty {
+  display: flex;
+  justify-content: center;
+  line-height: 400px;
+  font-size: 32px;
+  user-select: none;
+}
