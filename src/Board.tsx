@@ -1,12 +1,12 @@
 import React, { useRef, useImperativeHandle, forwardRef } from 'react';
 import DatePicker from 'antd/es/date-picker';
-import Line from '@ant-design/charts/es/line';
+import Line, { LineConfig } from '@ant-design/charts/es/line';
 import 'moment/locale/zh-cn';
-import moment from 'moment';
+import moment, { Moment } from 'moment';
 
 import zhCN from 'antd/es/date-picker/locale/zh_CN';
 import 'antd/dist/antd.css';
-import './index.less';
+import './index.css';
 
 export interface BoardProps {
   style?: React.CSSProperties;
@@ -15,20 +15,29 @@ export interface BoardProps {
   active: number | string;
   dateType: number | string;
   dataSource: [];
-  onChange: (activeKey: number) => void;
-  onDateChange: (date: Date, dateString?: string) => void;
-  onDatesChange: (date: Date, dateString?: string) => void;
+  showExport?: boolean;
+  onTabChange: (activeKey: number) => void;
+  onDateChange: (date: Moment, dateString?: string) => void;
+  onDatesChange: (date: Moment, dateString?: string) => void;
   onDateOpenChange: () => void;
   onDateTypeChange: (activeKey: number | string) => void;
   onExport: () => void;
 }
 
 const Board = (props: BoardProps, ref: any) => {
-  const { style, active = 1, dataSource = [], dateType = 1, title = '', description = '' } = props;
+  const {
+    style,
+    active = 1,
+    dataSource = [],
+    dateType = 1,
+    title = '',
+    description = '',
+    showExport = true,
+  } = props;
   const domRef = useRef(null);
   useImperativeHandle(ref, () => domRef.current);
 
-  const config = {
+  const config: LineConfig = {
     title: {
       visible: true,
       text: title,
@@ -58,22 +67,22 @@ const Board = (props: BoardProps, ref: any) => {
 
   // 处理左侧tab变化
   const handleTabChange = (activeKey: number) => {
-    const { onChange } = props;
-    if (onChange) {
-      onChange(activeKey);
+    const { onTabChange } = props;
+    if (onTabChange) {
+      onTabChange(activeKey);
     }
   };
 
-  // dateType:2时处理时间范围改变
-  const handleDateRangeChange = (dates: Date, dateString?: string) => {
+  // dateType: 2时处理时间范围改变
+  const handleDateRangeChange = (dates: Moment, dateString?: string) => {
     const { onDatesChange } = props;
     if (onDatesChange) {
       onDatesChange(dates, dateString);
     }
   };
 
-  // dateType:1时处理时间变化
-  const handleDateChange = (date: Date, dateString?: string) => {
+  // dateType: 1时处理时间变化
+  const handleDateChange = (date: Moment, dateString?: string) => {
     const { onDateChange } = props;
     if (onDateChange) {
       onDateChange(date, dateString);
@@ -127,16 +136,17 @@ const Board = (props: BoardProps, ref: any) => {
             <>
               <DatePicker.RangePicker
                 locale={zhCN}
-                onChange={e => handleDateRangeChange(e)}
-                onOpenChange={e => handleDateOpenChange(e)}
+                onChange={(e: any) => handleDateRangeChange(e)}
+                onOpenChange={() => handleDateOpenChange()}
                 disabledDate={current => current && current > moment().subtract(1, 'day')}
               />
             </>
           ) : (
             <DatePicker
-              onChange={e => handleDateChange(e)}
-              onOpenChange={e => handleDateOpenChange()}
-              disabledDate={current => current && current > dayjs(new Date()).subtract(1, 'day')}
+              locale={zhCN}
+              onChange={(e: any) => handleDateChange(e)}
+              onOpenChange={() => handleDateOpenChange()}
+              disabledDate={current => current && current > moment().subtract(1, 'day')}
             />
           )}
         </div>
@@ -156,9 +166,11 @@ const Board = (props: BoardProps, ref: any) => {
             );
           })}
         </div>
-        <div className='export'>
-          <button onClick={() => handleExport()}>导&nbsp;出</button>
-        </div>
+        {showExport && (
+          <div className='export'>
+            <button onClick={() => handleExport()}>导&nbsp;出</button>
+          </div>
+        )}
       </div>
       <div className='chart'>
         {dataSource.length > 0 ? (

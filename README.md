@@ -24,7 +24,7 @@ React data-tab-board
 
 ## Screenshot
 
-<img src="https://front-images.oss-cn-hangzhou.aliyuncs.com/i4/8e7d52524baffa614678e9a7bd1118c7-1175-149.png" width="1000" />
+<img src="https://front-images.oss-cn-hangzhou.aliyuncs.com/i4/173c44d5a2089676ab70c530d1b485b0-1788-990.jpg" width="1000" />
 
 ## Browsers support
 
@@ -43,31 +43,35 @@ var Board = require('data-tab-board');
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-ReactDOM.render(<Board title='' align='left' type='success' tip={<span>Board</span>} />, container);
+ReactDOM.render(<Board title='' dataSource={[]} />, container);
 ```
 
 ## Examples
 
 `npm start` and then go to
-<http://localhost:9001>
+<http://localhost:8000>
 
-Online examples: [github-pages](https://ybzjsxh.github.io/data-tab-board/?path=/story/data-tab-board--simple) or [vercel](https://data-tab-board.vercel.app/?path=/story/data-tab-board--simple)
+Online examples: [github-pages](https://ybzjsxh.github.io/data-tab-board/) or [vercel](https://data-tab-board.vercel.app)
 
 ## API
 
 ### Props
 
-|     name     |        type         |  default  |                                        description                                         |
-| :----------: | :-----------------: | :-------: | :----------------------------------------------------------------------------------------: |
-|    style?    | React.CSSProperties |    {}     |                                   custom container style                                   |
-| titleStyle?  | React.CSSProperties |    {}     |                                     custom title style                                     |
-| numberStyle? | React.CSSProperties |    {}     |                                    custom number style                                     |
-|  tipStyle?   | React.CSSProperties |    {}     |                                      custom tip style                                      |
-|     type     |       string        | 'primary' |                      one of ['primary', 'success', 'warning', 'info']                      |
-|    align     |       string        |  'right'  | one of ['left','right','top','bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight'] |
-|   showTip    |  boolean \| string  |   true    |                                    show tip icon or not                                    |
-|     tip      | string \| ReactNode |    ''     |                                         tips info                                          |
-|    number    |  string \| number   |           |                                           number                                           |
+|       name       |               type               | default |             description             |
+| :--------------: | :------------------------------: | :-----: | :---------------------------------: |
+|      style?      |       React.CSSProperties        |   {}    |       custom container style        |
+|      title?      |              string              |   ''    |         custom title style          |
+|   description?   |              string              |   ''    |      custom charts description      |
+|      active      |              number              | string  |                  1                  | active tab |
+|     dateType     |              number              | string  |   按天：1 ｜按小时 :2 default: 1    |
+|    dataSource    | {value:'', type: '', date: ''}[] |   []    |             chart data              |
+|   showExport?    |             boolean              |  true   |            是否显示导出             |
+|   onTabChange?   |             function             |  void   |          handle tab change          |
+|  onDatesChange   |             function             |  void   | handle dates change when dateType=1 |
+|   onDateChange   |             function             |  void   | handle dates change when dateType=2 |
+| onDateOpenChange |             function             |  void   |   handle date panel open callback   |
+| onDateTypeChange |             function             |  void   |  handle date type change callback   |
+|    onExport?     |             function             |  void   |            handle export            |
 
 ## Development
 

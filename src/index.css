@@ -40,10 +40,11 @@
   background-color: #ffffff;
   border-radius: 6px 6px 0 0;
 }
-.container .header .range > .ant-calendar-picker {
-  width: 328px;
+.container .header .range > .ant-picker {
+  border-radius: 6px;
 }
 .container .header .stats-type {
+  margin-right: 10px;
   display: flex;
   align-self: center;
   height: 34px;
@@ -73,7 +74,7 @@
 }
 .container .header .export > button {
   width: 80px;
-  height: 34px;
+  line-height: 30px;
   outline: none;
   background-color: #5094ff;
   border: 1px solid #5094ff;

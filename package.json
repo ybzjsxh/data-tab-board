@@ -2,17 +2,26 @@
   "name": "data-tab-board",
   "version": "0.0.1",
   "description": "A data chart board with tabs and expot",
-  "main": "index.tsx",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "es",
+    "lib",
+    "dist"
+  ],
+  "main": "lib/index",
+  "module": "es/index",
   "scripts": {
-    "build": "dumi build",
-    "compile": "dumi build && lessc src/index.less src/index.css",
+    "build": "father-build",
+    "doc:build": "dumi build",
+    "compile": "father-build && lessc src/index.less src/index.css",
     "coverage": "dumi test --coverage",
     "lint": "eslint src/ examples/ --ext .tsx,.ts,.jsx,.js",
-    "now-build": "npm run build",
+    "now-build": "npm run doc:build",
     "prepublishOnly": "npm run compile && np --no-cleanup --yolo --no-publish",
     "start": "cross-env NODE_ENV=development dumi dev",
     "test": "dumi test",
-    "gh-pages": "npm run build && gh-pages -d dist",
     "update:deps": "yarn upgrade-interactive --latest"
   },
   "repository": {
@@ -32,6 +41,18 @@
     "url": "https://github.com/ybzjsxh/data-tab-board/issues"
   },
   "homepage": "https://github.com/ybzjsxh/data-tab-board#readme",
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "node scripts/verifyCommit.js"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
   "dependencies": {
     "@ant-design/charts": "^0.9.13",
     "antd": "^4.6.3",
@@ -46,7 +67,7 @@
     "dumi": "^1.0.34",
     "eslint": "^7.8.1",
     "eslint-plugin-react-hooks": "^4.1.0",
-    "gh-pages": "^3.1.0",
+    "father-build": "^1.18.4",
     "less": "^3.12.2",
     "lint-staged": "^10.3.0",
     "np": "^6.5.0",

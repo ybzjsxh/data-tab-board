@@ -13,7 +13,7 @@ cache:
     - "node_modules"
 
 script:
-  - yarn build
+  - yarn doc:build
 
 notifications:
   email: false
@@ -23,7 +23,7 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep_history: true
-  local_dir: .doc
+  local_dir: dist
   target_branch: gh_pages # which branch to deploy
   on: # which branch to trigger travis
     branch: master
