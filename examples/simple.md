@@ -45,7 +45,7 @@ export default () => {
         dateType={dateType}
         onDateTypeChange={() => setDateType(dateType === 1 ? 2 : 1)}
         onTabChange={e => handleTabChange(e)}
-        showExport={false}
+        showExport={true}
       />
     </div>
   );

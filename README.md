@@ -24,7 +24,7 @@ React data-tab-board
 
 ## Screenshot
 
-<img src="https://front-images.oss-cn-hangzhou.aliyuncs.com/i4/173c44d5a2089676ab70c530d1b485b0-1788-990.jpg" width="1000" />
+<img src="https://front-images.oss-cn-hangzhou.aliyuncs.com/i4/82fccff5b58f2a13267cf92e1046691d-1854-1020.png!webp" width="1000" />
 
 ## Browsers support
 
@@ -51,7 +51,7 @@ ReactDOM.render(<Board title='' dataSource={[]} />, container);
 `npm start` and then go to
 <http://localhost:8000>
 
-Online examples: [github-pages](https://ybzjsxh.github.io/data-tab-board/) or [vercel](https://data-tab-board.vercel.app)
+Online examples: [github-pages](https://ybzjsxh.github.io/data-tab-board/#/examples/simple) or [vercel](https://data-tab-board.vercel.app/#/examples/simple)
 
 ## API
 

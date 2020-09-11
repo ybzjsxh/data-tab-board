@@ -27,7 +27,7 @@ export interface BoardProps {
 const Board = (props: BoardProps, ref: any) => {
   const {
     style,
-    active = 1,
+    active = 2,
     dataSource = [],
     dateType = 1,
     title = '',
@@ -116,7 +116,7 @@ const Board = (props: BoardProps, ref: any) => {
     <div className='container' style={style}>
       <div className='header'>
         <div className='days'>
-          {['近七日', '昨日', '近30日'].map((item, index) => {
+          {['昨日', '近7日', '近30日'].map((item, index) => {
             if (active === index + 1) {
               return (
                 <div className='day active' key={index}>
