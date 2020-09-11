@@ -1,6 +1,6 @@
 {
   "name": "data-tab-board",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A data chart board with tabs and expot",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
