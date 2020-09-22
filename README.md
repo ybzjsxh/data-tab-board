@@ -66,6 +66,7 @@ Online examples: [github-pages](https://ybzjsxh.github.io/data-tab-board/#/examp
 |     dateType     |              number              | string  |   按天：1 ｜按小时 :2 default: 1    |
 |    dataSource    | {value:'', type: '', date: ''}[] |   []    |             chart data              |
 |   showExport?    |             boolean              |  true   |            是否显示导出             |
+|    rangeValue    |         [Moment, Moment]         | moment  |      dateType:1 时开始结束时间      |
 |   onTabChange?   |             function             |  void   |          handle tab change          |
 |  onDatesChange   |             function             |  void   | handle dates change when dateType=1 |
 |   onDateChange   |             function             |  void   | handle dates change when dateType=2 |

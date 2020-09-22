@@ -15,6 +15,7 @@ export interface BoardProps {
   active: number | string;
   dateType: number | string;
   dataSource: [];
+  rangeValue: [Moment, Moment];
   showExport?: boolean;
   onTabChange: (activeKey: number) => void;
   onDateChange: (date: Moment, dateString?: string) => void;
@@ -33,6 +34,7 @@ const Board = (props: BoardProps, ref: any) => {
     title = '',
     description = '',
     showExport = true,
+    rangeValue = [moment().subtract(8, 'days'), moment().subtract(1, 'day')],
   } = props;
   const domRef = useRef(null);
   useImperativeHandle(ref, () => domRef.current);
@@ -139,11 +141,13 @@ const Board = (props: BoardProps, ref: any) => {
                 onChange={(e: any) => handleDateRangeChange(e)}
                 onOpenChange={() => handleDateOpenChange()}
                 disabledDate={current => current && current > moment().subtract(1, 'day')}
+                value={rangeValue}
               />
             </>
           ) : (
             <DatePicker
               locale={zhCN}
+              defaultValue={moment().subtract(1, 'day')}
               onChange={(e: any) => handleDateChange(e)}
               onOpenChange={() => handleDateOpenChange()}
               disabledDate={current => current && current > moment().subtract(1, 'day')}
